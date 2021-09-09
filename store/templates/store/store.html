@@ -1,0 +1,40 @@
+{% extends 'store/main.html'%}
+{% load static %}
+{% block content %}
+	<div class="row">
+		{%if not products%}
+			<h5>No Items Found</h5>
+		{%endif%}	
+	
+		{% for product in products %}
+		<div class="col-lg-4">
+			<img class="img img-responsive thumbnail" style="object-fit: cover;" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+				<button data-product={{product.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart">Sepete ekle</button>
+				<a class="btn btn-outline-success" href="{% url 'detail' product.id %}">Detay</a>
+				<h4 style="display: inline-block;float: right;"><strong>₺</strong>{{product.price|floatformat:2}}</h4>
+				
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="row mt-5 justify-content-center border border-white">
+		<nav aria-label="Page navigation example border border-white bg-dark">
+  <ul class="pagination justify-content-center">
+		{%for i in pages%}
+		{%if active_page == i%}
+		<li class="page-item active"><a class="page-link" href="{% url 'store' i %}">{{i}}</a></li>
+		{%else%}
+			<li class="page-item"><a class="page-link" href="{% url 'store' i %}">{{i}}</a></li>
+		{%endif%}
+	
+		{%endfor%}
+  </ul>
+</nav>
+
+	</div>
+
+{% endblock content %}
+

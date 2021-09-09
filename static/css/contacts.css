@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+	box-sizing: border-box;
+	font-family: "poppins", sans-serif;
+}
+
+.contact-info{
+	height: 100%;
+}
+.contact input[type="text"], .contact textarea, .contact input[type="email"]{
+	
+}
+.badge-contact{
+	font-size: 4em;
+	text-align: center;
+}
+.contacts-card{
+ color : white !important;
+}

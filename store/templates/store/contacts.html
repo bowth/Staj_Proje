@@ -1,0 +1,33 @@
+{% extends 'store/main.html'%}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 ">
+		<div class="contact-info container bg-dark clearfix p-4 rounded" >
+			<div class="mb-3 contacts-card"><i class="fas fa-map-marker-alt mr-2"></i> Mezitli, Mersin, Turkey</div>
+			<div class="mb-3 contacts-card"><i class="fas fa-envelope mr-2"></i> nawshadhnawas@gmail.com</div>
+			<div class="mb-3 contacts-card"><i class="fas fa-phone mr-2"></i> +90 553 149 1227</div>
+			<div class="mb-3 contacts-card"><i class="fas fa-clock mr-2"></i> Pzt - Cum 8:00 AM to 5:00 PM</div>
+			<div class="badge badge-contact bg-warning fs-1 text-wrap text-center ml-5 mt-4">NES</div>
+		</div>
+		</div>
+		<div class="col-lg-8 border border-secondary pb-3 rounded">
+						<h2>Bize Ulaşın</h2>
+			<form class="contact" action="" method="post">
+				 {% csrf_token %}
+				<input type="text"  name="name" class="form-control mb-3" placeholder="name" required>
+				<input type="email" name="email" class="form-control mb-3" placeholder="email" required>
+				<textarea name="message" rows="5" placeholder="message" class="form-control mb-3" required></textarea>
+				<input type="submit" name="submit" class="btn btn-secondary form-control rounded" value="gönder">
+			</form>
+		</div>
+	</div>
+</div>	
+
+
+
+
+{% endblock content %}

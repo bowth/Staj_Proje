@@ -1,0 +1,51 @@
+{% extends 'store/main.html'%}
+{% load static %}
+{% block content %}
+	<div class="container mt-5">
+		{% for product in products %}
+		<div class="row">
+			<button data-product={{product.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart ml-3">Sepete ekle</button>
+		</div>
+		<div class="row ">
+			<div class="col-lg-4">
+				<img class="img img-responsive thumbnail" style="object-fit: cover;" src="{{product.imageURL}}"/>
+			</div>
+			<div class="col-lg-8">
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün adı</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.name}}</strong></h6></div>
+				</div>
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün markası</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.brand}}</strong></h6></div>
+				</div>
+
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün oluşturulduğu tarih</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.date}}</strong></h6></div>
+				</div>
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün miktarı</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.quantity}}</strong></h6></div>
+				</div>
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün kategorisi</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.category}}</strong></h6></div>
+				</div>
+				<div class="row">
+					<div class="col d-flex justify-content-start"><h6>Ürün fiyatı</h6></div>
+					<div class="col d-flex justify-content-end"><h6><strong>{{product.price|floatformat:2}}₺</strong></h6></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				Açıklama
+			</div>
+			<div class="col-lg-8">
+				{{product.description}}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
